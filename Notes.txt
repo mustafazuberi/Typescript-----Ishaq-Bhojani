@@ -24,3 +24,18 @@ var input1 = document.getElementById("input1")! as HTMLInputElement;
 type script first time intialitze krty waqt khud hee relevant type variable me store kra leta ha agar hum na dein tw 
 
 
+
+
+
+
+
+
+
+--------------Class 3 --------------
+config.js (typescript)
+Root dir : "./" =======> Root dir : "./src"  isey src ya ksii file me rekhty hain aese hee nahi rkty yaha root directory denge ---  ab ya jb bh compile krega src ke folder se krega
+
+
+Output dir : ----> ek new folder dist create krnege 
+tw jab bh typescript compiile krega tw woh sari files ek jaga rkhedega tw kachra hojaiga
+ham output dir dist krdenge tw after compilation woh dist me dal dega
