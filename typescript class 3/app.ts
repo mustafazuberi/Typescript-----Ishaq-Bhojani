@@ -122,6 +122,26 @@ console.log(student1.stName);
 student1.addSkill("javascript");
 console.log(student1);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Product {
   constructor(
     private _id: number,

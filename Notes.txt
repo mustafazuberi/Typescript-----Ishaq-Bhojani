@@ -32,6 +32,10 @@ type script first time intialitze krty waqt khud hee relevant type variable me s
 
 
 --------------Class 3 --------------
+ "target": "es2016",   ----- Ya Compile hone ka bad Javascript ke konse version me converet ho 
+
+// "lib": [],  ----------Is me hum bata rehe hote hain kon se enviroment ko support krwana hai Qk tyepscrpuiit Multiple Enviroments me chal sakti he Like Browser DOM or Nodejs etc
+
 config.js (typescript)
 Root dir : "./" =======> Root dir : "./src"  isey src ya ksii file me rekhty hain aese hee nahi rkty yaha root directory denge ---  ab ya jb bh compile krega src ke folder se krega
 
@@ -39,3 +43,109 @@ Root dir : "./" =======> Root dir : "./src"  isey src ya ksii file me rekhty hai
 Output dir : ----> ek new folder dist create krnege 
 tw jab bh typescript compiile krega tw woh sari files ek jaga rkhedega tw kachra hojaiga
 ham output dir dist krdenge tw after compilation woh dist me dal dega
+
+
+sourceMap ---------
+
+
+strict ------------------- Agar strict true hai tw matlab type checking wali sari properties true hain 
+
+// "noImplicitAny": true, ---------- Ya hamain kahin pa bhi type any nahi krne degi 
+
+// "strictNullChecks": true,      ----------Jab tk confirm na krwa dein Null nahi ha error aiga like there
+// var input1 = document.getElementById("input1")! as HTMLInputElement;
+
+
+// "strictBindCallApply": true,-------------------- Jab ham function call krate hain tw ya type checking laga deta hai ke jis chez ke lya humne bind kiya tha hum wohi value bhj bh rahey hain ya nahi bhj rahye 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Class 4 
+
+Class Extend karne sa child class parent class ki methods access kar sakti hai Or hum chil class se required parent calss ke arguments super(args...) yaha bhj denge 
+
+
+
+
+-----------Singeltonss-----------
+
+Koi bhi class jo Ap chaho ke is ke bas ek hee object create ho 
+matlab is ka ek hee instance bane 
+
+­Instance matlab : Hamre class ko use hote hue jo objects generate ho reheye hain ­
+
+Hum new Date() ko ek variable me rakhte hain phir us ke methods or properties ko use krty hain QK Date ek class hoti hai tw hum Direct class.krke us ke methods ya properties ko call nahi krwa sakte hain use phle ksi variable me call karnaa hota ha phir us ke bad call karatay hain 
+
+Lekin hamain ek jaga ya bh dekhna ko milta hai ke hamain Date.now() without new kre kar rahy hote hai qk ya now static method hota hai 
+
+static method without new krke chala sakte hain ya allowed hota h 
+
+
+
+
+
+
+CLass 5 
+
+// --------------UNION Types--------------
+type Animal = {
+  name: string;
+  runningSpeed: number;
+};
+
+type Bird = {
+  name: string;
+  flyingSpeed: number;
+};
+
+type Creature = Animal | Bird;
+
+
+
+/ -----------------------Intersection Types--------------------
+
+// type Animal2 = {
+//   name: string;
+//   runningSpeed: number;
+// };
+
+// type Bird2 = {
+//   name: string;
+//   flyingSpeed: number;
+// };
+
+// type Creature2 = Animal2 & Bird2;
+
+// const tiger2: Creature2 = {
+//   name: "tiger",
+//   runningSpeed: 321,
+//   flyingSpeed: 2332,
+// };
+
+
+
+
+
+interface or type same hai bas interface ko class par bh implement kr sakty hain 
+
+
+
+interface class me implement kr dete hain tw woh classs me batata ha ke ya wali propertues ya methods hona zarori hain 
+
+Or abstract agar laga dein tw woh ya batata h key ... Ye walay methods child classes par hona zarori hain 
+
+
+
+
