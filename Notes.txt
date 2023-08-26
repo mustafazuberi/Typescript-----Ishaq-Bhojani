@@ -144,7 +144,50 @@ interface or type same hai bas interface ko class par bh implement kr sakty hain
 
 interface class me implement kr dete hain tw woh classs me batata ha ke ya wali propertues ya methods hona zarori hain 
 
-Or abstract agar laga dein tw woh ya batata h key ... Ye walay methods child classes par hona zarori hain 
+Or abstract agar laga dein tw woh ya batata h key ... Ye walay methods child classes par hona zarori hain 	
+
+
+
+
+
+
+
+TYPE CASTING 
+
+jaha par typescript khud se get nahi kar pata 
+const input1 = document.getElementById('input1')! as HTMLInputElement
+
+jese ya tw ise type casting kehte hain is ke 2 tariqa hota ha ek oper wala or ek neche wala 
+
+ya wala asal tariqa h 
+const input = <HTMLInputElement>document.getElementById('input')
+
+
+
+
+
+
+
+
+
+
+
+// -----------Generics----------------
+// Promise ka andar se jo bh return hoga woh wali chez generics kehlati h 
+
+
+const promiseFunc: () => Promise<string> = (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Task performed successfully");
+    }, 1000);
+  });
+};
+promiseFunc().then((res) => {
+  console.log(res?.split(" "));
+});
+
+
 
 
 
