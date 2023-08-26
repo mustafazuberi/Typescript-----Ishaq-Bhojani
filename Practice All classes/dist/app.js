@@ -157,14 +157,28 @@ class TigerClass {
         this.runningSpeed = runningSpeed;
     }
     eat(food) {
-        return food + ' kha le ...';
+        return food + " kha le ...";
     }
 }
-const tigerInter = new TigerClass('Mustafa', 2314);
+const tigerInter = new TigerClass("Mustafa", 2314);
 console.log(tigerInter);
-console.log(tigerInter.eat('Lassi'));
+console.log(tigerInter.eat("Lassi"));
 function log(creature) {
-    if ('runningSpeed' in creature) { // Type Guards
+    if ("runningSpeed" in creature) {
+        // Type Guards
         console.log(creature.runningSpeed);
     }
 }
+// Class 6
+// Type Casting
+const input = document.getElementById("input1");
+const promiseFunc = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({ id: 321, name: "Mustafa" });
+        }, 1000);
+    });
+};
+promiseFunc().then((res) => {
+    console.log(res);
+});

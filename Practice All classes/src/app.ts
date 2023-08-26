@@ -251,47 +251,55 @@ const tiger3: Creature = {
 
 class TigerClass implements AnimalInterface {
   constructor(public name: string, public runningSpeed: number) {}
-  
+
   eat(food: string): string {
-    return food + ' kha le ...'
+    return food + " kha le ...";
   }
 }
 
+const tigerInter = new TigerClass("Mustafa", 2314);
+console.log(tigerInter);
+console.log(tigerInter.eat("Lassi"));
 
-const tigerInter = new TigerClass('Mustafa',2314)
-console.log(tigerInter)
-console.log(tigerInter.eat('Lassi'))
-
-
-
-
-
-
-
-
-
-
-
-
-// Type Guards 
+// Type Guards
 
 type Animaltg = {
   name: string;
   runningSpeed: number;
-}
+};
 type Birdtg = {
   name: string;
   flyingSpeed: number;
-}
+};
 
-type Creaturetg = Animaltg | Birdtg 
+type Creaturetg = Animaltg | Birdtg;
 
-function log(creature : Creaturetg){
-  if('runningSpeed' in creature){ // Type Guards
-    console.log(creature.runningSpeed)
+function log(creature: Creaturetg) {
+  if ("runningSpeed" in creature) {
+    // Type Guards
+    console.log(creature.runningSpeed);
   }
 }
 
+// Class 6
 
+// Type Casting
+const input = <HTMLInputElement>document.getElementById("input1")!;
 
+// Generics ----
+interface User {
+  id: number;
+  name: string;
+}
 
+const promiseFunc: () => Promise<User> = (): Promise<User> => {
+  return new Promise<User>((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 321, name: "Mustafa" });
+    }, 1000);
+  });
+};
+
+promiseFunc().then((res) => {
+  console.log(res);
+});

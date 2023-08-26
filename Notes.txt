@@ -192,3 +192,33 @@ promiseFunc().then((res) => {
 
 
 
+decorators------  decorators hamesha class ke sath hee use hote hain 
+
+
+
+
+
+
+
+
+Function Over laoding
+
+type Combined = string | number;
+
+function add(x: number, y: number): number;
+function add(x: string, y: string): string;
+function add(x: Combined, y: Combined) {
+  if (typeof x === "number" && typeof y === "number") {
+    return x + y;
+  } else if (typeof x === "string" && typeof y === "string") {
+    return x + y;
+  } else {
+    throw new Error("Typed did'nt match");
+  }
+}
+
+add("Hello", "World");
+add(3,3)
+
+afar idher hum argumnet me number denge tw woh first wali function line implemetn krega 
+agar string denge tw second wali 
