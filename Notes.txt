@@ -45,8 +45,8 @@ tw jab bh typescript compiile krega tw woh sari files ek jaga rkhedega tw kachra
 ham output dir dist krdenge tw after compilation woh dist me dal dega
 
 
-sourceMap ---------
-
+sourceMap --------- source map true krne sa after compilation JS ke sath ek map file bh banegi jis ka faida ya hoga ke 
+Ya compiled JS ko map kara deta ha Typescript se tw agar humm JS me debugger use kreinge tw bhot khichri paki hoti h compiled file me tw is triqa sa hum typescript me rehte hua hee debugger use kr sakte hain
 
 strict ------------------- Agar strict true hai tw matlab type checking wali sari properties true hain 
 
@@ -222,3 +222,299 @@ add(3,3)
 
 afar idher hum argumnet me number denge tw woh first wali function line implemetn krega 
 agar string denge tw second wali 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CLASS 2 (OLD PLAYLIST)
+
+OOPS ka jo basic concept ha woh ya h real life objects pe kam krna 
+
+
+
+class Student {
+  userName: string;
+  rollNumber: number;
+  private skills: string[] = [];
+
+  constructor(userName: string, rollNumber: number) {
+    this.userName = userName;
+    this.rollNumber = rollNumber;
+  }
+
+  addSkill(skill: string) {
+    this.skills.push(skill);
+  }
+
+  getSkills() {
+    return this.skills;
+  }
+}
+
+
+
+
+Ya skills agar private ha phir bh object console karainge tw ajaige Qk broser me compiled file chal rahi h Jo javascript h 
+or JS me private key nahi chlti 
+
+
+
+Short hand Initialtication
+
+ class Student {
+    userName: string;
+    rollNumber: number;
+    private skills: string[] = [];
+
+    constructor(userName: string, rollNumber: number) {
+      this.userName = userName;
+      this.rollNumber = rollNumber;
+    }
+
+    addSkill(skill: string) {
+      this.skills.push(skill);
+    }
+
+    getSkills() {
+      return this.skills;
+    }
+  }
+
+Below is shorthand
+bas access modifiers dene honge or phir this wgera krna ki zarurat nahi h ise shorthand initialization kehte hn 
+
+class Student {
+    private skills: string[] = [];
+
+    constructor(public userName: string, public rollNumber: number) {
+    }
+
+    addSkill(skill: string) {
+      this.skills.push(skill);
+    }
+
+    getSkills() {
+      return this.skills;
+    }
+  }
+
+
+
+
+
+
+-----------------
+
+read only property krde tw update nahi kr sakte phir
+
+
+constructor(public userName: string, public readonly rollNumber: number) {
+    super(userName, rollNumber);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABSTRACT
+
+
+Mtlb hum parent class ko ek abstract method agar dedein jo emplty ho tw hum ye rule set kr rahe hain is ki sari child classes ko ya method define krna parega wrna error aiga 
+
+agar parent class me abstract method ha tw uski class ko bh abstract banana preaga
+
+
+Abstract class ka koi instance nahi ban sakta
+
+
+
+
+
+
+
+
+
+
+SINGELTONS 
+
+is sse hum restric kr dete hain ke hamari class ka sirf ek hee instance bane
+
+IS me hum constructor ko private kr deta hain
+
+
+
+
+
+
+PRIVATE Vs PROTECTED
+
+private method ya property sirf khud apni class me access sho skti h or Child class ma nahi hosakti or class se bhar bh nahi ho sakti 
+protected method ya property class me use hoskti or child class me bh lekin bhar nahi ho sakti
+
+
+
+
+
+
+
+
+TYPE vs INTERFACE
+Type or interface me ya difference h ke interface class ar bh use hoskta h
+
+
+
+
+CLASS 3
+
+intersection type using type keyword
+type Bird = {
+  name: string;
+  flyingSpeed: number;
+};
+type Animal = {
+  name: string;
+  runningSpeed: number;
+};
+type Creature = Bird & Animal;
+
+
+intersection type using interface keyword
+interface Bird = {
+  name: string;
+  flyingSpeed: number;
+};
+interface Animal = {
+  name: string;
+  runningSpeed: number;
+};
+interface Creature extends Bird,Animal{};
+
+
+
+
+Type GUARDS
+
+Idhr agar ksi me flying speed na hua or ksi me runningspeed na hua tw jabhi error arah h qk second key me se ho sakti h koi 
+tw idhr type guard lgate hn 
+
+
+
+
+GENERICS
+
+Kisi bh type ki additional information hum 	generics ko pas krte hn 
+
+
+
+Jab promise resolve hora hota h tw data late ata h tw hamain pata nahi hota ab kya aiga tw type set krte me generics ko dedete hn ya additional info like belo
+
+const promise: Promise<string> = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Done");
+  }, 1500);
+});
+promise.then((data) => data.split(""));
+
+
+
+
+Error code ----- abhi yaha agar hum merged.age console kara rahe hain tw error arah ha qk hum ne ise object dya h uski type nahi batai ke us me ya key exist karti bh ha ya nahi tw yaha bh generics use kreinge or generics se <T,U>  ya koi bh variable use krwa denge
+
+function merge(objA: object, objB: object) {
+  return { ...objA, ...objB };
+}
+const merged = merge({ name: "nadir" }, { age: 32 });
+console.log(merged.age);
+
+
+Solved---------
+function merge<T, U>(objA: T, objB: U) {
+  return { ...objA, ...objB };
+}
+const merged = merge({ name: "nadir" }, { age: 32 });
+console.log(merged.age);
+
+
+Lekin Agar ya hum second wala argument me object ki jga koi number jese 20 rekh dein tw phir tw error aiga ke obj nahi h tw hum generic me T extends object krdenge 
+is se woh ya vaildate bh krlega ke object ho T ya phir U
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DECORATORS
+
+Ya hamesha class ke sath heee use hota h 
+
+decorators typescript me abhi experimental hain QK ya abhi ure tariqe se release nahi hoayee hain experimental hain 
+tw agar ise use karna hai tw ts config me jake experimentalDecorators ko true krna prega
+
+
+decorator ke parameter me humain woh wali class mil jati h jis ke oper use call kraya hua h 
+
+
+Or decorator ko class ke oper call krana parta h qkk woh wk functin return kar rah h 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTION OVERLOADING
+
+type Combined = number | string;
+
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: Combined, b: Combined) {
+  if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  } else if (typeof a === "string" && typeof b === "string") {
+    return a + b;
+  } else {
+    throw new Error("cannot add different types");
+  }
+}
+// (add("dsa", "dasdsa") as string).split('')
+console.log(add("dsa", "dasdsa"));
+
+
+
